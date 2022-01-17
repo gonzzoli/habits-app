@@ -1,0 +1,33 @@
+.habit-form{
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 15px;
+    margin: 0 auto;
+    border: 2px solid #BBE789;
+    box-shadow: inset 0 0 8px #BBE789;
+    .form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .form-input {
+            display: flex;
+            flex-direction: column;
+            label {
+                margin-bottom: 2px;
+            }
+            input, textarea {
+                border: none;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        &.top {
+
+        }
+        &.bottom{
+        }
+    }
+}
