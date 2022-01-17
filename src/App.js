@@ -1,10 +1,12 @@
+import React from 'react';
 import classes from './App.module.scss';
+import Nav from './Nav/Nav';
 
 function App() {
   return (
-    <div className={classes.app}>
-      <p className={classes.loco}>hoalsldalsd</p>
-    </div>
+    <React.Fragment>
+      <Nav />
+    </React.Fragment>
   );
 }
 
