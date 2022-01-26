@@ -10,24 +10,85 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 30%;
         .form-input {
             display: flex;
             flex-direction: column;
             label {
                 margin-bottom: 2px;
+                color: white;
             }
             input, textarea {
                 border: none;
                 width: 100%;
+                border-radius: 5px;
+                padding: 5px;
+                background: none;
+                border: 1px solid #bbe78969;
+                box-shadow: inset 0px -10px 8px -10px #BBE789;
+                color: white;
+                background: #bbe7891c;
+                transition: .15s ease;
+                &.input-error {
+                    border: 1px solid #e7898969;
+                    box-shadow: inset 0px -10px 8px -10px #e78989;
+                }
+                &::placeholder {
+                    color: rgba(245, 245, 245, 0.548);
+                }
                 &:focus {
                     outline: none;
+                    box-shadow: none;
                 }
+            }
+            textarea{
+                resize: none;
+            }
+            .error-text {
+                color: rgb(243, 102, 102);
+                font-size: .9rem;
             }
         }
         &.top {
-
+            margin-bottom: 15px;
+            align-items: flex-start;
         }
         &.bottom{
+            margin-bottom: 20px;
+            align-items: flex-start;
+            .form-input {
+                flex-grow: 2;
+            }
+        }
+    }
+    .form-cta {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .button {
+            padding: 5px 10px;
+            border-radius: 7px;
+            border: 1px solid #BBE789;
+            font-size: .9rem;
+            cursor: pointer;
+            user-select: none;
+            transition: .15s ease;
+            &.cancel {
+                background: none;
+                color: white;
+                &:hover {
+                    border: 1px solid rgba(253, 63, 63, 0.589);
+                    background: rgba(253, 63, 63, 0.589);
+                }
+            }
+            &.add {
+                color: white;
+                background: rgba(153, 205, 50, 0.384);
+                &:hover {
+                    background: rgba(153, 205, 50, 0.692);
+                }
+            }
         }
     }
 }

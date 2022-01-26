@@ -1,0 +1,14 @@
+.reminder{
+    border-bottom: 1px solid #bbe78965;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    p {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .9rem;
+        .trash-icon:hover {
+            color: rgb(230, 84, 84);
+        }
+    }
+}

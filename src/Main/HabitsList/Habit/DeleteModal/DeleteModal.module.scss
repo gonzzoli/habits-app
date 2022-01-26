@@ -1,0 +1,44 @@
+.blur {
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.438);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-container {
+        min-width: 300px;
+        border-radius: 10px;
+        background: #57a075;
+        padding: 20px;
+        p {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            button {
+                border: none;
+                font-size: 1rem;
+                color: #F3F34E;
+                background: none;
+                padding: 5px 15px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: .1s ease;
+                &.confirm {
+                    color: rgb(0, 0, 0);
+                    font-size: 1rem;
+                    background: rgba(236, 79, 79, 0.425);
+                }
+                &:hover {
+                    background: rgba(101, 102, 182, 0.363);
+                }
+            }
+        }
+    }
+}

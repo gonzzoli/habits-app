@@ -2,11 +2,11 @@
     width: 200px;
     background: linear-gradient(to bottom, #4B5386, rgb(0, 0, 0));
     height: 100%;
+    padding: 20px 0 0 0;
     .sidebar-options {
         display: flex;
         flex-direction: column;
         list-style: none;
-        padding: 20px 0 0 0;
         .sidebar-option {
             &.hide-option {
                 color: #C3E789;

@@ -6,6 +6,41 @@
     box-shadow: 2px 2px 4px #c3e7895b, 2px 2px 4px #c3e7895b inset;
     display: flex;
     flex-direction: column;
+    &.show-details {
+        grid-column: 1/3;
+        animation: open-habit-details .15s ease;
+        height: 250px;
+        @keyframes open-habit-details {
+            0% {
+                width: 50%;
+                height: 160px;
+            }
+            100% {
+                width: 100%;
+                height: 250px;
+            }
+        }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.4rem;
+            color: white;
+            margin-bottom: 10px;
+            h4 {
+                color: #C3E789; 
+            }
+            .info {
+                font-size: 1rem;
+                .action-days {
+                    text-transform: capitalize;
+                }
+            }
+            .reminders {
+                width: 200px;
+            }
+        }
+    }
     .habit-top {
         display: flex;
         justify-content: space-between;
@@ -13,6 +48,7 @@
         .habit-title{
             color: #F3F34E;
             font-size: 18px;
+            text-transform: capitalize;
         }
         .start-date{
             color: whitesmoke;
@@ -34,6 +70,10 @@
             border-radius: 5px;
             transition: .1s ease;
             font-size: 15px;
+            &.delete-button {
+                color: rgb(231, 55, 55);
+                font-size: 1rem;
+            }
             &:hover {
                 background: rgba(101, 102, 182, 0.363);
             }

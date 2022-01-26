@@ -1,12 +1,40 @@
 .form-days-container {
+    padding: 10px;
+    .error-text {
+        color: rgb(236, 68, 68);
+        font-size: .9rem;
+        margin-top: 2px;
+    }
     .title {
         text-align: center;
+        color: white;
+        margin-bottom: 5px;
     }
     .circles-container {
         display: flex;
         list-style: none;
+        gap: 10px;
         .day-circle{
-
+            font-size: .8rem;
+            font-weight: 600;
+            width: 25px;
+            height: 25px;
+            border: 1px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+            color: white;
+            transition: .15s ease;
+            &:hover {
+                background: #bbe78941;
+            }
+            &.selected {
+                background: #bbe78975;
+                border: 1px solid rgb(44, 77, 25);
+            }
         }
     }
 }
