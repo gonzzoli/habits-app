@@ -1,23 +1,11 @@
 .sidebar {
     width: 200px;
-    background: linear-gradient(to bottom, #4B5386, rgb(0, 0, 0));
     height: 100%;
     padding: 20px 0 0 0;
     .sidebar-options {
         display: flex;
         flex-direction: column;
         list-style: none;
-        .sidebar-option {
-            &.hide-option {
-                color: #C3E789;
-            }
-            color: white;
-            padding: 5px 0 5px 20px ;
-            cursor: pointer;
-            transition: .15s ease;
-            &:hover {
-                background: linear-gradient(to right, rgb(112, 122, 182), #5d66a100);
-            }
-        }
+        user-select: none;
     }
 }

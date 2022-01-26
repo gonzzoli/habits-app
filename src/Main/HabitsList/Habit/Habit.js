@@ -33,7 +33,7 @@ function Habit(props) {
         console.log('deleting ', props.habitData.id)
         setShowDeleteModal(false)
     }
-
+    console.log(props.habitData.reminders)
     return (
         <div className={`${classes['habit']} ${showDetails && classes['show-details']}`}>
             <div className={classes['habit-top']}>
@@ -47,7 +47,7 @@ function Habit(props) {
                     <h4>Days: </h4>
                     <p className={classes['action-days']}>{actionDaysStr}</p>
                 </div>
-                {props.habitData.reminders.length > 0 && <div className={classes['reminders']}>
+                {props.habitData.reminders && <div className={classes['reminders']}>
                     <h4>Reminders:</h4>
                     {props.habitData.reminders.map(reminder => {
                         return <Reminder key={Math.random()} inDetails={true} data={reminder} />

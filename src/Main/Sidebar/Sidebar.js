@@ -1,14 +1,16 @@
 import classes from './Sidebar.module.scss'
+import { Route, Routes } from 'react-router-dom'
+import SidebarOptions from './SidebarOptions'
 
 function Sidebar() {
     return (
         <aside className={classes['sidebar']}>
             <ul className={classes['sidebar-options']}>
-                <li className={classes['sidebar-option']}>Daily</li>
-                <li className={classes['sidebar-option']}>Weekly</li>
-                <li className={classes['sidebar-option']}>Monthly</li>
-                <li className={`${classes['sidebar-option']} ${classes['hide-option']}`}>Hide Habits</li>
-                <li className={`${classes['sidebar-option']} ${classes['hide-option']}`}>Hide Goals</li>
+                <Routes>
+                    <Route path='/calendar' element={<SidebarOptions page='calendar'/>} />
+                    <Route path='/habits-list' element={<SidebarOptions page='habits-list'/>} />
+                    <Route path='/stats' element={<SidebarOptions page='stats'/>} />
+                </Routes>
             </ul>
         </aside>
     )

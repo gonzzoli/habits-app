@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { useState } from 'react/cjs/react.development'
+import { useContext, useState } from 'react'
 import { FormContext } from '../context/habit-form-context'
 import classes from './FormReminders.module.scss'
 import Reminder from './Reminder'

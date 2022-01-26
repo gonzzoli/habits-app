@@ -1,4 +1,5 @@
 import classes from './Nav.module.scss'
+import { NavLink } from 'react-router-dom'
 
 function Nav(props) {
     return (
@@ -8,9 +9,15 @@ function Nav(props) {
             </div>
             <div className={classes['links-container']}>
                 <ul className={classes['links-list']}>
-                    <li className={classes['link']}>Calendar</li>
-                    <li className={classes['link']}>Habits List</li>
-                    <li className={classes['link']}>My Stats</li>
+                    <li>
+                        <NavLink to='/calendar' className={({isActive})=>`${classes['link']} ${isActive ? classes['active']:''}`}>Calendar</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/habits-list' className={({isActive})=>`${classes['link']} ${isActive ? classes['active']:''}`}>Habits List</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/stats' className={({isActive})=>`${classes['link']} ${isActive ? classes['active']:''}`}>My Stats</NavLink>
+                    </li>
                 </ul>
             </div>
         </nav>

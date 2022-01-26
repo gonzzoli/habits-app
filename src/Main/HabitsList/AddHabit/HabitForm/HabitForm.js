@@ -45,12 +45,13 @@ function HabitForm(props) {
         validateTitle()
         formCtx.checkSelectedDays()
         if(!titleIsValid || !formCtx.daysIsValid) return
-        
+        console.log(formCtx.reminders)
         const newHabit = new Habit(Math.random(),
         titleRef.current.value,
         descriptionRef.current.value,
         formCtx.selectedDays,
         formCtx.reminders)
+
         await habitsCtx.addHabit(newHabit)
         formCtx.resetState()
         props.onCancelForm()

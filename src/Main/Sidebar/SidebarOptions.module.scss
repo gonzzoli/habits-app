@@ -1,0 +1,47 @@
+.sidebar-option {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    &.hide-option {
+        color: #C3E789;
+    }
+    color: white;
+    padding: 5px 0 5px 20px ;
+    cursor: pointer;
+    transition: .15s ease;
+    &:hover {
+        background: linear-gradient(to right, rgb(112, 122, 182), #5d66a100);
+    }
+    .icon {
+        font-size: 14px;
+        transition: .15s ease;
+        &.active {
+            transform: rotate(180deg);
+        }
+    }
+    
+}
+.sort-options {
+    transition: .3s ease;
+    height: 0px;
+    overflow: hidden;
+    &.shown{
+        //Should fix this but meh, not now
+        height: 138px;
+    }
+    .sort-option {
+        padding: 5px 0 5px 35px ;
+        color: #C3E789;
+        cursor: pointer;
+        transition: .15s ease;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 15px;
+
+        &:hover {
+            background: linear-gradient(to right, #5d66a100, rgb(112, 122, 182) 10%, #5d66a100);
+        }
+    }
+}
