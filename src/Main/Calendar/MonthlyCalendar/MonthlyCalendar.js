@@ -1,7 +1,7 @@
 import classes from './MonthlyCalendar.module.scss'
-import DayComponent from '../DayComponent/DayComponent'
-import { useContext, useMemo } from 'react'
-import { CalendarContext } from '../calendar-context'
+import MonthlyDayComponent from '../DayComponent/MonthlyDayComponent'
+import { useContext } from 'react'
+import { OptionsContext } from '../../side-options-context'
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
@@ -24,13 +24,13 @@ function createDates(month, year) {
 }
 
 function MonthlyCalendar() {
-    const calendarCtx = useContext(CalendarContext)
-    const calendarDates = createDates(calendarCtx.monthShowing, calendarCtx.yearShowing)
+    const optionsCtx = useContext(OptionsContext)
+    const calendarDates = createDates(optionsCtx.monthShowing, optionsCtx.yearShowing)
     
     return(
     <div className={classes['monthly-calendar']}>
         {DAYS.map(day => <p key={day} className={classes['day-title']}>{day}</p>)}
-        {calendarDates.map(date => <DayComponent key={date} date={date} />)}
+        {calendarDates.map(date => <MonthlyDayComponent key={date} date={date} />)}
     </div>
     )
 }

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Nav(props) {
     return (
-        <nav>
+        <nav id='nav'>
             <div className={classes['logo-container']}>
                 <p>Habit <span>Crash</span></p>
             </div>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, Fragment, useState, useContext } from "react";
 import { useLocation } from 'react-router-dom'
-import { CalendarContext } from '../Calendar/calendar-context'
+import { OptionsContext, MONTHS } from '../side-options-context';
 
 const SOME_YEARS = [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]
 
@@ -13,8 +13,8 @@ function SidebarOptions(props) {
     const [showYearOptions, setShowYearOptions] = useState(false)
 
     const location = useLocation()
-    const calendarCtx = useContext(CalendarContext)
-
+    const optionsCtx = useContext(OptionsContext)
+    
     function toggleSortOptions() {
         setShowSortOptions(prevState => !prevState)
     }
@@ -35,15 +35,23 @@ function SidebarOptions(props) {
         setShowYearOptions(false)
     }, [location])
 
+    function sortChangeHandler(sort) {
+        optionsCtx.changeHabitSortHandler(sort)
+    }
+
     function monthChangeHandler(month) {
-        calendarCtx.changeMonthShowingHandler(month)
+        optionsCtx.changeMonthShowingHandler(month)
     }
 
     function yearChangeHandler(year) {
-        calendarCtx.changeYearShowingHandler(year)
+        optionsCtx.changeYearShowingHandler(year)
     }
 
-    const monthOptions = calendarCtx.MONTHS.map(month =>
+    function timeframeChangeHandler(timeframe) {
+        optionsCtx.changeCalendarTimeframeHandler(timeframe)
+    }
+
+    const monthOptions = MONTHS.map(month =>
     <li onClick={() => {monthChangeHandler(month)}} key={month} className={`${classes['sidebar-option']} ${classes['option']}`}>
         <p>{month}</p>
     </li>
@@ -54,24 +62,23 @@ function SidebarOptions(props) {
             <p>{year}</p>
         </li>
         )
-
     if(props.page==='calendar') {
         return (
             <Fragment>
                 <li onClick={toggleMonthOptions} className={`${classes['sidebar-option']} ${classes['selection']}`}>
-                    <p>{calendarCtx.MONTHS[calendarCtx.monthShowing - 1]}</p>
+                    <p>{MONTHS[optionsCtx.monthShowing - 1]}</p>
                     <FontAwesomeIcon className={`${classes['icon']} ${showMonthOptions ? classes['active']: ''}`} icon={faChevronDown} icon={faChevronDown} />
                 </li>
                 {showMonthOptions && monthOptions}
                 <li onClick={toggleYearOptions} className={`${classes['sidebar-option']} ${classes['selection']}`}>
-                    <p>{calendarCtx.yearShowing}</p>
+                    <p>{optionsCtx.yearShowing}</p>
                     <FontAwesomeIcon className={`${classes['icon']} ${showYearOptions ? classes['active']: ''}`} icon={faChevronDown} icon={faChevronDown} />
                 </li>
                 {showYearOptions && yearOptions}
-                <li className={classes['sidebar-option']}>
+                <li onClick={()=>{timeframeChangeHandler('weekly')}} className={classes['sidebar-option']}>
                     Weekly
                 </li>
-                <li className={classes['sidebar-option']}>
+                <li onClick={()=>{timeframeChangeHandler('monthly')}} className={classes['sidebar-option']}>
                     Monthly
                 </li>
                 <li className={`${classes['sidebar-option']} ${classes['hide-option']}`}>
@@ -83,19 +90,20 @@ function SidebarOptions(props) {
             </Fragment>
         )
     }
+
     if(props.page==='habits-list') {
         const sortOptions = (
             <div className={`${classes['sort-options']} ${showSortOptions ? classes['shown'] : ''}`}>
-                <li onClick={()=>{console.log('as')}} className={classes['sort-option']}>
+                <li onClick={()=>{sortChangeHandler('Newest')}} className={classes['sort-option']}>
                     Newest
                 </li>
-                <li className={classes['sort-option']}>
+                <li onClick={()=>{sortChangeHandler('Oldest')}} className={classes['sort-option']}>
                     Oldest
                 </li>
-                <li className={classes['sort-option']}>
+                <li onClick={()=>{sortChangeHandler('Success')}} className={classes['sort-option']}>
                     Success Rate
                 </li>
-                <li className={classes['sort-option']}>
+                <li onClick={()=>{sortChangeHandler('Failure')}} className={classes['sort-option']}>
                     Failure Rate
                 </li>
             </div>

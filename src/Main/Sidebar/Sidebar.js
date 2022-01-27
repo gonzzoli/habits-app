@@ -7,9 +7,9 @@ function Sidebar() {
         <aside className={classes['sidebar']}>
             <ul className={classes['sidebar-options']}>
                 <Routes>
-                    <Route path='/calendar' element={<SidebarOptions page='calendar'/>} />
-                    <Route path='/habits-list' element={<SidebarOptions page='habits-list'/>} />
-                    <Route path='/stats' element={<SidebarOptions page='stats'/>} />
+                    <Route path='/calendar/*' element={<SidebarOptions page='calendar'/>} />
+                    <Route path='/habits-list/*' element={<SidebarOptions page='habits-list'/>} />
+                    <Route path='/stats/*' element={<SidebarOptions page='stats'/>} />
                 </Routes>
             </ul>
         </aside>
