@@ -1,0 +1,35 @@
+.day-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 6px;
+    height: 90px;
+    border: 1px solid teal;
+    padding: 5px;
+    transition: .15s ease;
+    cursor: pointer ;
+    user-select: none;
+    &.out-of-month {
+        border: 1px solid rgba(0, 128, 128, 0.603);
+         .date{
+            color: rgba(241, 241, 241, 0.527);
+            transition: .15s ease;
+            font-size: 1rem;
+        }
+    }
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .date{
+        color: rgb(255, 255, 255);
+        transition: .15s ease;
+        font-size: 1rem;
+    }
+    &:hover {
+        transform: scale(1.05);
+        .date {
+            color: rgba(241,241,241);
+        }
+    }
+    
+}

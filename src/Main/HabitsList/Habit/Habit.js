@@ -33,7 +33,6 @@ function Habit(props) {
         console.log('deleting ', props.habitData.id)
         setShowDeleteModal(false)
     }
-    console.log(props.habitData.reminders)
     return (
         <div className={`${classes['habit']} ${showDetails && classes['show-details']}`}>
             <div className={classes['habit-top']}>

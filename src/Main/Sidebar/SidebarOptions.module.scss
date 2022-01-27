@@ -20,7 +20,13 @@
             transform: rotate(180deg);
         }
     }
-    
+    &.option {
+        padding: 2px 10px 2px 30px;
+        font-size: 1rem;
+        &:hover {
+            background: linear-gradient(to right, rgb(69, 136, 136), #5d66a100);
+        }
+    }
 }
 .sort-options {
     transition: .3s ease;
