@@ -1,0 +1,30 @@
+.sidebar-option {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    &.hide-option {
+        color: #C3E789;
+    }
+    color: white;
+    padding: 5px 0 5px 20px ;
+    cursor: pointer;
+    transition: .15s ease;
+    &:hover {
+        background: linear-gradient(to right, rgb(112, 122, 182), #5d66a100);
+    }
+    .icon {
+        font-size: 14px;
+        transition: .15s ease;
+        &.active {
+            transform: rotate(180deg);
+        }
+    }
+    &.option {
+        padding: 2px 10px 2px 30px;
+        font-size: 1rem;
+        &:hover {
+            background: linear-gradient(to right, rgb(69, 136, 136), #5d66a100);
+        }
+    }
+}

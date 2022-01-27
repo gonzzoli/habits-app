@@ -1,6 +1,7 @@
 import classes from './Sidebar.module.scss'
 import { Route, Routes } from 'react-router-dom'
 import SidebarOptions from './SidebarOptions'
+import SideArrows from './CalendarOptions/SideArrows/SideArrows'
 
 function Sidebar() {
     return (
@@ -12,6 +13,9 @@ function Sidebar() {
                     <Route path='/stats/*' element={<SidebarOptions page='stats'/>} />
                 </Routes>
             </ul>
+            <Routes>
+                <Route path='/calendar/*' element={<SideArrows />} />
+            </Routes>
         </aside>
     )
 }

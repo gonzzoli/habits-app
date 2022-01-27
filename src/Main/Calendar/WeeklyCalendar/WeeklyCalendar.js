@@ -22,9 +22,8 @@ function createDates(month, day, year) {
 
 function WeeklyCalendar() {
     const optionsCtx = useContext(OptionsContext)
-    const [startingDate, setStartingDate] = useState(new Date().getDate())
-    const [weekDates, setWeekDates] = useState(createDates(optionsCtx.monthShowing, startingDate, optionsCtx.yearShowing))
-    console.log(weekDates)
+    const startingDate = optionsCtx.startDate.getDate()
+    const weekDates = createDates(optionsCtx.monthShowing, startingDate, optionsCtx.yearShowing)
     
     return (
         <div className={classes['weekly-calendar']}>

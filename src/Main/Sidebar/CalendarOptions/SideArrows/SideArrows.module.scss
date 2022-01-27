@@ -1,0 +1,20 @@
+.arrows-container{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    .icon{
+        border-radius: 50%;
+        background: rgba(195, 231, 137, 0.1);
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        color: white;
+        cursor: pointer;
+        transition: .1s ease;
+        &:hover {
+            background: rgba(195, 231, 137, 0.3);
+        }
+    }
+}
