@@ -2,7 +2,7 @@ import classes from './CalendarOptions.module.scss'
 import { useEffect, useState, Fragment, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { MONTHS, OptionsContext } from '../../side-options-context'
-import { faChevronDown, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const SOME_YEARS = [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]
@@ -21,18 +21,20 @@ function CalendarOptions(props) {
 
     function toggleMonthOptions() {
         setShowMonthOptions(prevState => !prevState)
+        setShowYearOptions(false)
     }
 
     function toggleYearOptions() {
         setShowYearOptions(prevState => !prevState)
+        setShowMonthOptions(false)
     }
 
     function monthChangeHandler(month) {
-        optionsCtx.changeMonthShowingHandler(month)
+        optionsCtx.changeDateMonthHandler(month)
     }
 
     function yearChangeHandler(year) {
-        optionsCtx.changeYearShowingHandler(year)
+        optionsCtx.changeDateYearHandler(year)
     }
 
     function timeframeChangeHandler(timeframe) {
@@ -50,15 +52,16 @@ function CalendarOptions(props) {
             <p>{year}</p>
         </li>
         )
+        
     return (
         <Fragment>
             <li onClick={toggleMonthOptions} className={`${classes['sidebar-option']} ${classes['selection']}`}>
-                <p>{MONTHS[optionsCtx.monthShowing - 1]}</p>
+                <p>{MONTHS[optionsCtx.startDate.getMonth()]}</p>
                 <FontAwesomeIcon className={`${classes['icon']} ${showMonthOptions ? classes['active']: ''}`} icon={faChevronDown} icon={faChevronDown} />
             </li>
             {showMonthOptions && monthOptions}
             <li onClick={toggleYearOptions} className={`${classes['sidebar-option']} ${classes['selection']}`}>
-                <p>{optionsCtx.yearShowing}</p>
+                <p>{optionsCtx.startDate.getFullYear()}</p>
                 <FontAwesomeIcon className={`${classes['icon']} ${showYearOptions ? classes['active']: ''}`} icon={faChevronDown} icon={faChevronDown} />
             </li>
             {showYearOptions && yearOptions}

@@ -22,9 +22,12 @@ function createDates(month, day, year) {
 
 function WeeklyCalendar() {
     const optionsCtx = useContext(OptionsContext)
+
     const startingDate = optionsCtx.startDate.getDate()
-    const weekDates = createDates(optionsCtx.monthShowing, startingDate, optionsCtx.yearShowing)
-    
+    const startingMonth = optionsCtx.startDate.getMonth()+1
+    const startingYear = optionsCtx.startDate.getFullYear()
+
+    const weekDates = createDates(startingMonth, startingDate, startingYear)
     return (
         <div className={classes['weekly-calendar']}>
             {DAYS.map(day => <p key={day} className={classes['day-title']}>{day}</p>)}

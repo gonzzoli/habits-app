@@ -25,8 +25,7 @@ function createDates(month, year) {
 
 function MonthlyCalendar() {
     const optionsCtx = useContext(OptionsContext)
-    const calendarDates = createDates(optionsCtx.monthShowing, optionsCtx.yearShowing)
-    
+    const calendarDates = createDates(optionsCtx.startDate.getMonth()+1, optionsCtx.startDate.getFullYear())
     return(
     <div className={classes['monthly-calendar']}>
         {DAYS.map(day => <p key={day} className={classes['day-title']}>{day}</p>)}

@@ -5,10 +5,10 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 25px 95%;
     gap: 7px;
+    user-select: none;
     .day-title{
         text-align: center;
         color: white;
         font-size: 1.1rem;
-        user-select: none;
     }
 }

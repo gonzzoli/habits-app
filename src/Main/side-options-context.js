@@ -5,19 +5,9 @@ export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', '
 export const OptionsContext = createContext()
 
 export function OptionsContextProvider(props) {
-    const [monthShowing, setMonthShowing] = useState(new Date().getMonth()+1)
-    const [yearShowing, setYearShowing] = useState(new Date().getFullYear())
     const [habitSortOption, setHabitSortOption] = useState('Newest')
-    const [calendarTimeframe, setCalendarTimeframe] = useState('weekly')
+    const [calendarTimeframe, setCalendarTimeframe] = useState('monthly')
     const [startDate, setStartDate] = useState(new Date())
-
-    function changeMonthShowingHandler(month) {
-        setMonthShowing(MONTHS.indexOf(month) + 1)
-    }
-
-    function changeYearShowingHandler(year) {
-        setYearShowing(year)
-    }
 
     function changeHabitSortHandler(option) {
         setHabitSortOption(option)
@@ -27,38 +17,70 @@ export function OptionsContextProvider(props) {
         setCalendarTimeframe(timeframe)
     }
 
-    function changeWeekStartDateHandler(startDate) {
+    function changeStartDateHandler(startDate) {
         setStartDate(startDate)
+    }
+
+    function changeDateYearHandler(year) {
+        setStartDate(prevDate => new Date(`${prevDate.getMonth()+1}-${prevDate.getDate()}-${year}`))
+    }
+
+    function changeDateMonthHandler(month) {
+        setStartDate(prevDate => new Date(`${month}-1-${prevDate.getFullYear()}`))
     }
 
     function advanceCalendarHandler() {
         if(calendarTimeframe==='monthly') {
-            setMonthShowing(prevState => prevState+1)
+            //Month +2 because is zero index based, and we need to increase it by one also.
+            //to advance the calendar
+            if(startDate.getMonth()+2===12) {
+                /*Failing over here
+                t
+                t
+                tr
+                r
+                r
+                r
+                r
+                Not working when passing trhough december or january
+                asd
+                a
+                ads
+                as
+                asd
+                
+                s*/
+                setStartDate(prevState => new Date(`1-1-${prevState.getFullYear()+1}`))
+            } else {
+                setStartDate(prevState => new Date(`${prevState.getMonth()+2}-1-${prevState.getFullYear()}`))
+            }
         } else {
             setStartDate(prevState => new Date(+prevState + 7*86400000))
         }
     }
-
+    console.log(startDate)
     function retreatCalendarHandler() {
         if(calendarTimeframe==='monthly') {
-            setMonthShowing(prevState => prevState-1)
+            if(startDate.getMonth()===0) {
+                setStartDate(prevState => new Date(`1-1-${prevState.getFullYear()-1}`))
+            } else {
+                setStartDate(prevState => new Date(`${prevState.getMonth()}-1-${prevState.getFullYear()}`))
+            }
         } else {
-            setStartDate(prevState => new Date(+prevState + 7*86400000))
+            setStartDate(prevState => new Date(+prevState - 7*86400000))        
         }
     }
 
     return (
         <OptionsContext.Provider value={{
-            monthShowing,
-            yearShowing,
             habitSortOption,
             calendarTimeframe,
             startDate,
             changeHabitSortHandler,
-            changeMonthShowingHandler,
-            changeYearShowingHandler,
+            changeDateMonthHandler,
+            changeDateYearHandler,
             changeCalendarTimeframeHandler,
-            changeWeekStartDateHandler,
+            changeStartDateHandler,
             advanceCalendarHandler,
             retreatCalendarHandler
         }}>

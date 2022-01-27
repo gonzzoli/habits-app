@@ -8,7 +8,7 @@ function DayComponent(props) {
     const day = props.date.getDate()
     const optionsCtx = useContext(OptionsContext)
     //Add a 1 because it is index-based and not 'human' based
-    const outOfMonth = month+1 !== optionsCtx.monthShowing
+    const outOfMonth = month+1 !== optionsCtx.startDate.getMonth()+1
     return (
     <div className={`${classes['day-container']} ${outOfMonth ? classes['out-of-month'] : ''}`}>
         <p className={classes['date']}>{MONTHS[month]}, {day}</p>
