@@ -28,28 +28,11 @@ export function OptionsContextProvider(props) {
     function changeDateMonthHandler(month) {
         setStartDate(prevDate => new Date(`${month}-1-${prevDate.getFullYear()}`))
     }
-
     function advanceCalendarHandler() {
         if(calendarTimeframe==='monthly') {
             //Month +2 because is zero index based, and we need to increase it by one also.
             //to advance the calendar
-            if(startDate.getMonth()+2===12) {
-                /*Failing over here
-                t
-                t
-                tr
-                r
-                r
-                r
-                r
-                Not working when passing trhough december or january
-                asd
-                a
-                ads
-                as
-                asd
-                
-                s*/
+            if(startDate.getMonth()+1===12) {
                 setStartDate(prevState => new Date(`1-1-${prevState.getFullYear()+1}`))
             } else {
                 setStartDate(prevState => new Date(`${prevState.getMonth()+2}-1-${prevState.getFullYear()}`))
@@ -58,11 +41,10 @@ export function OptionsContextProvider(props) {
             setStartDate(prevState => new Date(+prevState + 7*86400000))
         }
     }
-    console.log(startDate)
     function retreatCalendarHandler() {
         if(calendarTimeframe==='monthly') {
             if(startDate.getMonth()===0) {
-                setStartDate(prevState => new Date(`1-1-${prevState.getFullYear()-1}`))
+                setStartDate(prevState => new Date(`12-1-${prevState.getFullYear()-1}`))
             } else {
                 setStartDate(prevState => new Date(`${prevState.getMonth()}-1-${prevState.getFullYear()}`))
             }
