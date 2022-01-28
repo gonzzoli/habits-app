@@ -9,16 +9,20 @@
     transition: .15s ease;
     cursor: pointer ;
     user-select: none;
-    &.out-of-month {
-        border: 1px solid rgba(0, 128, 128, 0.603);
-         .date{
-            color: rgba(241, 241, 241, 0.527);
-            transition: .15s ease;
-            font-size: 1rem;
-        }
+    &.completed{
+        background: rgba(195, 231, 137, 0.7);
+        border: 1px solid #c3e7892c;
+        padding-top: 6px;
+        border-top: none;
     }
-    &:hover {
-        background: rgba(255, 255, 255, 0.1);
+    &.uncompleted {
+        background: rgba(231, 137, 137, 0.7);
+        border: 1px solid #e7898962;
+        padding-top: 6px;
+        border-top: none;
+    }
+    &.out-of-month {
+        opacity: .7;
     }
     .date{
         color: rgb(255, 255, 255);
@@ -31,5 +35,7 @@
             color: rgba(241,241,241);
         }
     }
-    
+    .habit-title {
+        color: whitesmoke;
+    }
 }

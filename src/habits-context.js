@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
+const WEEK_DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
 export const HabitsContext = createContext()
 class Habit{
     constructor(id,actionDays, description, title, startDate, scoreChain, reminders) {
@@ -74,12 +76,17 @@ export function HabitsContextProvider(props) {
         setUploadingHabit(false)
     }
 
+    function getDayHabits(day) {
+        return habitsData.filter(habit => habit.actionDays.includes(WEEK_DAYS[day]))
+    }
+
     return (
         <HabitsContext.Provider value={{
             habitsData,
             uploadingHabit,
             loadingHabits,
-            addHabit
+            addHabit,
+            getDayHabits
         }}>
             {props.children}
         </HabitsContext.Provider>

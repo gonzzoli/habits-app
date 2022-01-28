@@ -41,6 +41,10 @@ function CalendarOptions(props) {
         optionsCtx.changeCalendarTimeframeHandler(timeframe)
     }
 
+    function toggleShowColors() {
+        optionsCtx.toggleShowColors()
+    }
+
     const monthOptions = MONTHS.map(month =>
     <li onClick={() => {monthChangeHandler(month)}} key={month} className={`${classes['sidebar-option']} ${classes['option']}`}>
         <p>{month}</p>
@@ -71,8 +75,8 @@ function CalendarOptions(props) {
             <li onClick={()=>{timeframeChangeHandler('monthly')}} className={classes['sidebar-option']}>
                 Monthly
             </li>
-            <li className={`${classes['sidebar-option']} ${classes['hide-option']}`}>
-                Hide Habits
+            <li onClick={toggleShowColors} className={`${classes['sidebar-option']} ${classes['hide-option']}`}>
+                {optionsCtx.showColors ? 'Hide' : 'Show'} Colors
             </li>
             <li className={`${classes['sidebar-option']} ${classes['hide-option']}`}>
                 Hide Goals

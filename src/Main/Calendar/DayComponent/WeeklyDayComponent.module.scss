@@ -4,4 +4,39 @@
     border-radius: 5px;
     border: 1px solid teal;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .15s ease;
+    &.completed {
+        background: linear-gradient(to top, #c3e789bb, rgba(0, 0, 0, 0) 40%);
+        border: 1px solid #c3e7892c;
+        padding-top: 6px;
+        border-top: none;
+    }
+    &.uncompleted {
+        background: linear-gradient(to top, #e78989bb, rgba(0, 0, 0, 0) 40%);
+        border: 1px solid #e7898962;
+        padding-top: 6px;
+        border-top: none;
+    }
+    .date {
+        color: white;
+    }
+    .day-habits {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 50%;
+        justify-content: start;
+        align-items: start;
+        overflow: hidden;
+        .habit-title {
+        color: white;
+        }
+    }
+    .total-completed {
+        color: white;
+    }
 }

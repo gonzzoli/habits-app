@@ -8,6 +8,7 @@ export function OptionsContextProvider(props) {
     const [habitSortOption, setHabitSortOption] = useState('Newest')
     const [calendarTimeframe, setCalendarTimeframe] = useState('monthly')
     const [startDate, setStartDate] = useState(new Date())
+    const [showColors, setShowColors] = useState(false)
 
     function changeHabitSortHandler(option) {
         setHabitSortOption(option)
@@ -28,6 +29,7 @@ export function OptionsContextProvider(props) {
     function changeDateMonthHandler(month) {
         setStartDate(prevDate => new Date(`${month}-1-${prevDate.getFullYear()}`))
     }
+
     function advanceCalendarHandler() {
         if(calendarTimeframe==='monthly') {
             //Month +2 because is zero index based, and we need to increase it by one also.
@@ -41,6 +43,7 @@ export function OptionsContextProvider(props) {
             setStartDate(prevState => new Date(+prevState + 7*86400000))
         }
     }
+
     function retreatCalendarHandler() {
         if(calendarTimeframe==='monthly') {
             if(startDate.getMonth()===0) {
@@ -53,18 +56,24 @@ export function OptionsContextProvider(props) {
         }
     }
 
+    function toggleShowColors() {
+        setShowColors(prevState => !prevState)
+    }
+
     return (
         <OptionsContext.Provider value={{
             habitSortOption,
             calendarTimeframe,
             startDate,
+            showColors,
             changeHabitSortHandler,
             changeDateMonthHandler,
             changeDateYearHandler,
             changeCalendarTimeframeHandler,
             changeStartDateHandler,
             advanceCalendarHandler,
-            retreatCalendarHandler
+            retreatCalendarHandler,
+            toggleShowColors
         }}>
             {props.children}
         </OptionsContext.Provider>
