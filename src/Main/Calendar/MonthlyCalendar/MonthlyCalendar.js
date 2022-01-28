@@ -29,17 +29,24 @@ function createDates(month, year) {
     return datesArray
 }
 
+function generateCompleted() {
+    return Math.random() > 0.5
+}
+
 function MonthlyCalendar() {
     const optionsCtx = useContext(OptionsContext)
     const habitsCtx = useContext(HabitsContext)
     const calendarDates = createDates(optionsCtx.startDate.getMonth()+1, optionsCtx.startDate.getFullYear())
+
+
 
     return(
     <div className={classes['monthly-calendar']}>
         {DAYS.map(day => <p key={day} className={classes['day-title']}>{day}</p>)}
         {calendarDates.map(date => <MonthlyDayComponent key={date}
             habits={habitsCtx.getDayHabits(date.getDay()-1)} 
-            date={date} />)}
+            date={date} 
+            completed={generateCompleted()}/>)}
     </div>
     )
 }

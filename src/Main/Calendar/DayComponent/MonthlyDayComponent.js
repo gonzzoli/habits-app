@@ -14,11 +14,13 @@ function DayComponent(props) {
     props.habits.forEach(habit => {
         habitTitles.push(<p key={habit.title} className={classes['habit-title']}>{habit.title}</p>)
     })
-    
+
+    const stateClass = props.completed ? 'completed' : 'uncompleted'
+
     return (
     <div className={`${classes['day-container']} 
     ${outOfMonth ? classes['out-of-month'] : ''}
-    ${optionsCtx.showColors ? classes['completed'] : ''}`}>
+    ${optionsCtx.showColors ? classes[stateClass] : ''}`}>
         <p className={classes['date']}>{MONTHS[month]}, {day}</p>
         <p className={classes['total-done']}>3/5</p>
         {/* {habitTitles} */}

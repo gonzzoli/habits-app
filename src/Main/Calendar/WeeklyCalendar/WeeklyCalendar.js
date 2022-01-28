@@ -22,16 +22,22 @@ function createDates(month, day, year) {
 
 function WeeklyCalendar() {
     const optionsCtx = useContext(OptionsContext)
-
     const startingDate = optionsCtx.startDate.getDate()
     const startingMonth = optionsCtx.startDate.getMonth()+1
     const startingYear = optionsCtx.startDate.getFullYear()
 
     const weekDates = createDates(startingMonth, startingDate, startingYear)
+    
+    function generateCompleted() {
+        return Math.random() > 0.5
+    }
+    
     return (
         <div className={classes['weekly-calendar']}>
             {DAYS.map(day => <p key={day} className={classes['day-title']}>{day}</p>)}
-            {weekDates.map(date => <WeeklyDayComponent key={date} date={date} />)}
+            {weekDates.map(date => <WeeklyDayComponent key={date} 
+                date={date} 
+                completed={generateCompleted()} />)}
         </div>
     )
 }

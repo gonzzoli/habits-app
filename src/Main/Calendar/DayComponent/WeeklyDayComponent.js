@@ -15,7 +15,12 @@ function WeeklyDayComponent(props) {
     })
 
     return (
-        <div className={`${classes['day-container']} ${showColors ? classes['completed'] : ''}`}>
+        <div className={`${classes['day-container']}`}>
+            <div className={`${classes['color-background']}
+                ${props.completed ? classes['completed'] : classes['uncompleted']} 
+                ${showColors ? classes['show-colors'] : ''}`}>
+            </div>
+
             <p className={classes['date']}>{props.date.getDate()}</p>
             <ul className={classes['day-habits']}>
                 {habitTitles}

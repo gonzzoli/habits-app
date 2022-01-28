@@ -8,19 +8,37 @@
     flex-direction: column;
     justify-content: space-between;
     transition: .15s ease;
-    &.completed {
-        background: linear-gradient(to top, #c3e789bb, rgba(0, 0, 0, 0) 40%);
-        border: 1px solid #c3e7892c;
-        padding-top: 6px;
-        border-top: none;
-    }
-    &.uncompleted {
-        background: linear-gradient(to top, #e78989bb, rgba(0, 0, 0, 0) 40%);
-        border: 1px solid #e7898962;
-        padding-top: 6px;
-        border-top: none;
+    position: relative;
+    .color-background {
+        height: 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: .5s ease;
+        &.completed{
+            background: linear-gradient(to top, #c3e789bb, rgba(0, 0, 0, 0) 40%);
+            &.show-colors {
+                height: 100%;
+                padding-top: 6px;
+                border-top: none;
+                border: 1px solid #c3e7892c;
+                border-top: none;
+            }
+        }
+        &.uncompleted {
+            background: linear-gradient(to top, #e78989bb, rgba(0, 0, 0, 0) 40%);
+            &.show-colors {
+                height: 100%;
+                border: 1px solid #e7898962;
+                padding-top: 6px;
+                border-top: none;
+            }
+        }
+        
     }
     .date {
+        z-index: 1;
         color: white;
     }
     .day-habits {
@@ -32,11 +50,13 @@
         justify-content: start;
         align-items: start;
         overflow: hidden;
+        z-index: 1;
         .habit-title {
         color: white;
         }
     }
     .total-completed {
+        z-index: 1;
         color: white;
     }
 }
