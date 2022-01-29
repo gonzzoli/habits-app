@@ -36,7 +36,9 @@ function Habit(props) {
     return (
         <div className={`${classes['habit']} ${showDetails && classes['show-details']}`}>
             <div className={classes['habit-top']}>
-                <p className={classes['habit-title']}>{props.habitData.title}</p>
+                <div className={`${classes['title-container']} ${showDetails?classes['in-details']:''}`}>
+                    <p className={classes['habit-title']}>{props.habitData.title}</p>
+                </div>
                 <p className={classes['start-date']}>Since {day}/{month}/{year}</p>
             </div>
             <HabitChain chainData={props.habitData.scoreChain}/>
@@ -48,9 +50,12 @@ function Habit(props) {
                 </div>
                 {props.habitData.reminders && <div className={classes['reminders']}>
                     <h4>Reminders:</h4>
-                    {props.habitData.reminders.map(reminder => {
+                    <div className={classes['reminders-container']}>
+                        {props.habitData.reminders.map(reminder => {
                         return <Reminder key={Math.random()} inDetails={true} data={reminder} />
                     })}
+                    </div>
+                    
                 </div>}
                 {props.habitData.description !== '' && <div className={classes['info']}>
                     <h4>Description:</h4>

@@ -12,17 +12,13 @@
     &.completed{
         background: rgba(195, 231, 137, 0.7);
         border: 1px solid #c3e7892c;
-        padding-top: 6px;
-        border-top: none;
     }
     &.uncompleted {
         background: rgba(231, 137, 137, 0.7);
         border: 1px solid #e7898962;
-        padding-top: 6px;
-        border-top: none;
     }
     &.out-of-month {
-        opacity: .7;
+        opacity: .6;
     }
     .date{
         color: rgb(255, 255, 255);

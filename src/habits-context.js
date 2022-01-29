@@ -67,7 +67,6 @@ export function HabitsContextProvider(props) {
 
     async function addHabit(habit) {
         setUploadingHabit(true)
-        console.log(habit)
         await uploadHabit(habit)
         .then(() => {
             setHabitsData(prevData => prevData.concat(habit))
@@ -77,6 +76,7 @@ export function HabitsContextProvider(props) {
     }
 
     function getDayHabits(day) {
+        if(day===-1) day=6
         return habitsData.filter(habit => habit.actionDays.includes(WEEK_DAYS[day]))
     }
 
