@@ -17,4 +17,11 @@
             background: rgba(0, 0, 0, 0.1);
         }
     }
+    @media screen and(max-width:'768px') {
+        margin-top: 30px;
+        .icon{
+            width: 50%;
+            border-radius: 5px;
+        }
+    }
 }

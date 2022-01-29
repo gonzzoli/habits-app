@@ -1,8 +1,8 @@
 .sidebar-option {
     display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
     &.hide-option {
         color: #C3E789;
     }
@@ -10,7 +10,7 @@
     padding: 5px 0 5px 20px ;
     cursor: pointer;
     transition: .15s ease;
-    &:hover {
+    &.hover-enabled:hover {
         background: linear-gradient(to right, rgb(112, 122, 182), #5d66a100);
     }
     .icon {
@@ -20,11 +20,69 @@
             transform: rotate(180deg);
         }
     }
-    &.option {
-        padding: 2px 10px 2px 30px;
-        font-size: 1rem;
-        &:hover {
-            background: linear-gradient(to right, rgb(69, 136, 136), #5d66a100);
+    &.selection {
+        width: 100%;
+        & > div {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .options-modal {
+            width: 100%;
+            .option {
+                padding: 2px 10px 2px 15px;
+                font-size: 1rem;
+                &:hover {
+                    background: linear-gradient(to right,#5d66a100, rgb(69, 136, 136), #5d66a100);
+                }
+            }
         }
     }
+    @media screen and(max-width:'768px') {
+        border-radius: 10px;
+        border: 1px solid #c3e789a2;
+        padding: 10px;
+        align-items: center;
+        width: 100%;
+        &.option {
+            border: none;
+            &:hover {
+                background: rgba(129, 129, 129, 0.2);
+            }
+        }
+        &.hover-enabled:hover {
+            background: rgba(129, 129, 129, 0.2);
+        }
+        &.selection {
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            font-size: 18px;
+            padding: 7px;
+            & >div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+            .options-modal {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                z-index: 3;
+                background: #363C61;
+                border-radius: 7px;
+                transition: .2s ease;
+                .option {
+                    padding: 2px 10px 2px 30px;
+                    font-size: 1rem;
+                    border: none;
+                    &:hover {
+                        background: linear-gradient(to right,#5d66a100, rgb(69, 136, 136), #5d66a100);
+                    }
+                }
+            }
+        }
+    }
+    
 }

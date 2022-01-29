@@ -8,4 +8,16 @@
         list-style: none;
         user-select: none;
     }
+    @media screen and(max-width:'768px') {
+        width: 100%;
+        
+        .sidebar-options {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    }
 }
