@@ -48,7 +48,7 @@ function HabitsListOptions(props) {
         <ul className={classes['sidebar-options']}>
             <li onClick={toggleSortOptions} className={classes['sidebar-option']}>
                 Sort Habits
-                {!isSmallScreen && <FontAwesomeIcon className={`${classes['icon']} ${showSortOptions ? classes['active']: ''}`} icon={faChevronDown}/>}
+                <FontAwesomeIcon className={`${classes['icon']} ${showSortOptions ? classes['active']: ''}`} icon={faChevronDown}/>
             </li>
             {showSortOptions && window.innerWidth > 768 && sortOptions}
             {showSortOptions && window.innerWidth <= 768 && <OptionsModal from='habits-list' onCloseModal={toggleSortOptions}>

@@ -11,8 +11,9 @@ function SidebarOptions(props) {
         return <HabitsListOptions />
     }
     if(props.page==='stats') {
-        return <p>asd</p>
+        return <></>
     }
+    return <></>
 }
 
 export default SidebarOptions

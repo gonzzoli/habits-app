@@ -13,9 +13,9 @@ function WeeklyDayComponent(props) {
     dayHabits.forEach(habit => {
         habitTitles.push(<li key={habit.title} className={classes['habit-title']}>{habit.title}</li>)
     })
-
+    console.log(props)
     return (
-        <div className={`${classes['day-container']}`}>
+        <div className={`${classes['day-container']} ${props.date.getDay()===0?classes['sunday']:''}`}>
             <div className={`${classes['color-background']}
                 ${props.completed ? classes['completed'] : classes['uncompleted']} 
                 ${showColors ? classes['show-colors'] : ''}`}>
