@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { OptionsContext } from '../../side-options-context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import OptionsModal from '../OptionsModal/OptionsModal'
 
 function HabitsListOptions(props) {
 
@@ -12,6 +13,8 @@ function HabitsListOptions(props) {
     const location = useLocation()
     const optionsCtx = useContext(OptionsContext)
     
+    const isSmallScreen = window.innerWidth <= 768
+
     function toggleSortOptions() {
         setShowSortOptions(prevState => !prevState)
     }
@@ -22,10 +25,11 @@ function HabitsListOptions(props) {
 
     function sortChangeHandler(sort) {
         optionsCtx.changeHabitSortHandler(sort)
+        setShowSortOptions(false)
     }
 
     const sortOptions = (
-        <div className={`${classes['sort-options']} ${showSortOptions ? classes['shown'] : ''}`}>
+        <>
             <li onClick={()=>{sortChangeHandler('Newest')}} className={classes['sort-option']}>
                 Newest
             </li>
@@ -38,17 +42,19 @@ function HabitsListOptions(props) {
             <li onClick={()=>{sortChangeHandler('Failure')}} className={classes['sort-option']}>
                 Failure Rate
             </li>
-        </div>
+        </>
     )
-
     return (
-        <Fragment>
+        <ul className={classes['sidebar-options']}>
             <li onClick={toggleSortOptions} className={classes['sidebar-option']}>
                 Sort Habits
-                <FontAwesomeIcon className={`${classes['icon']} ${showSortOptions ? classes['active']: ''}`} icon={faChevronDown}/>
+                {!isSmallScreen && <FontAwesomeIcon className={`${classes['icon']} ${showSortOptions ? classes['active']: ''}`} icon={faChevronDown}/>}
             </li>
-            {sortOptions}
-        </Fragment>
+            {showSortOptions && window.innerWidth > 768 && sortOptions}
+            {showSortOptions && window.innerWidth <= 768 && <OptionsModal from='habits-list' onCloseModal={toggleSortOptions}>
+                {sortOptions}
+            </OptionsModal>}
+        </ul>
         )
 }
 

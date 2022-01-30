@@ -9,6 +9,14 @@
     justify-content: space-between;
     transition: .15s ease;
     position: relative;
+    &:hover {
+        width: 150%;
+        z-index: 3;
+        background: rgb(31, 43, 70);
+    }
+    @media screen and(max-width:'768px') {
+        border-radius: 2px;
+    }
     .color-background {
         height: 0;
         width: 100%;
@@ -49,8 +57,17 @@
         height: 50%;
         justify-content: start;
         align-items: start;
-        overflow: hidden;
+        overflow-y: scroll;
+        overflow-x: hidden;
         z-index: 1;
+        &::-webkit-scrollbar {
+            background: none;
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb{
+            background: rgb(0, 128, 128);
+            border-radius: 10px;
+        }
         .habit-title {
         color: white;
         }

@@ -54,16 +54,91 @@ nav {
             }
         }
     }
-    // @media screen and(min-width:'1000px'){
-    //     .links-container {
-    //         margin-right: 50pxpx;
-    //         width: 40%;
-    //         .links-list {
-    //             justify-content: center;
-    //             .link {
-    //                 margin: 0 10px;
-    //             }
-    //         }
-    //     }
-    // }
+    .icon {
+        font-size: 32px;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    @media screen and(max-width:'768px') {
+        .blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.384);
+            z-index: 10;
+            animation: appear .15s ease;
+            @keyframes appear {
+                0%{
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            .links-container {
+                height: 100vh;
+                width: 50vw;
+                background: #464D7C;
+                position: absolute;
+                top: 0;
+                right: 0;
+                animation: appear-from-side .15s ease;
+                display: flex;
+                flex-direction: column;
+                @keyframes appear-from-side {
+                    0%{
+                        right: -500px;
+                    }
+                    100% {
+                        right: 0;
+                    }
+                }
+                &.dissapearing {
+                    animation: disappear-from-side .15s ease;
+                    @keyframes disappear-from-side {
+                        0%{
+                            right: 0;
+                        }
+                        99%{
+                            right: -500px;
+                        }
+                        100%{
+                            display: none;
+                        }
+                    }
+                }
+                .icon {
+                    width: 100%;
+                    display: flex;
+                    justify-content: end;
+                    padding: 15px 25px 0 0;
+                    cursor: default;
+                    margin-bottom: 10px;
+                    svg {
+                        cursor: pointer;
+                    }
+                }
+                .links-list {
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: start;
+                    width: 100%;
+                    li {
+                        width: 100%;
+                        .link {
+                            display: block;
+                            width: 100%;
+                            padding: 10px 15px;
+                            text-decoration: none;
+                            &:hover {
+                                background: rgba(117, 116, 116, 0.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -5,11 +5,23 @@ import { useContext } from 'react'
 import { HabitsContext } from '../../habits-context'
 import { OptionsContext } from '../side-options-context'
 
+function sortHabits(habitsData=[], sortOption) {
+    const arrayCopy = habitsData.slice()
+    if(sortOption==='Newest'){
+        return arrayCopy.sort((a, b) => b.startDate - a.startDate)
+    }
+    if(sortOption==='Oldest') {
+        return arrayCopy.sort((a, b) => a.startDate - b.startDate)
+    }
+}
+
 function HabitsList() {
     const habitsCtx = useContext(HabitsContext)
     const optionsCtx = useContext(OptionsContext)
 
-    const habitElements = habitsCtx.habitsData.map(habit => {
+    const sortedHabits = sortHabits(habitsCtx.habitsData, optionsCtx.habitSortOption)
+
+    const habitElements = sortedHabits.map(habit => {
         return <Habit habitData={habit} key={habit.id}/>
     })
     

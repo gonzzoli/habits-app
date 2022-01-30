@@ -6,8 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background: linear-gradient(to bottom, #4B5386, black);
 }
-
+body::-webkit-scrollbar {
+  background: linear-gradient(to bottom, #4B5386, black);
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #C3E789;
+  border-radius: 10px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
