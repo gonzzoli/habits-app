@@ -25,6 +25,14 @@
         transition: .15s ease;
         font-size: 1rem;
     }
+    .total-done {
+        color: rgba(255, 255, 0, 0.8);
+        font-size: 14px;
+        &.showing-color {
+            color: black;
+            font-size: 16px;
+        }
+    }
     &:hover {
         transform: scale(1.05);
         .date {

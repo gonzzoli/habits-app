@@ -1,4 +1,4 @@
-import { useContext } from 'react/cjs/react.development'
+import { useContext } from 'react'
 import { HabitsContext } from '../../../habits-context'
 import { OptionsContext } from '../../side-options-context'
 import classes from './WeeklyDayComponent.module.scss'
@@ -13,7 +13,6 @@ function WeeklyDayComponent(props) {
     dayHabits.forEach(habit => {
         habitTitles.push(<li key={habit.title} className={classes['habit-title']}>{habit.title}</li>)
     })
-    console.log(props)
     return (
         <div className={`${classes['day-container']} ${props.date.getDay()===0?classes['sunday']:''}`}>
             <div className={`${classes['color-background']}
@@ -25,7 +24,7 @@ function WeeklyDayComponent(props) {
             <ul className={classes['day-habits']}>
                 {habitTitles}
             </ul>
-            <p className={classes['total-completed']}>3/4</p>
+            <p className={`${classes['total-done']} ${optionsCtx.showColors?classes['showing-color']:''}`}>3/4</p>
         </div>
     )
 }

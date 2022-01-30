@@ -1,9 +1,8 @@
 import classes from './Nav.module.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react/cjs/react.development'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 
 
@@ -33,7 +32,6 @@ function Nav() {
         setTimeout(() =>{
             setShowLinks(false)
         },100)
-        console.log('a')
     }
     
     const linksContainer = <div ref={containerRef} className={classes['links-container']}>
@@ -55,7 +53,7 @@ function Nav() {
     return (
         <nav id='nav'>
             <div className={classes['logo-container']}>
-                <p>Habit <span>Crash</span></p>
+                <Link to='habits-list'><p>Habit <span>Crash</span></p></Link>
             </div>
             {!isSmallScreen && linksContainer}
             {isSmallScreen && <FontAwesomeIcon onClick={()=>{setShowLinks(true)}} className={classes['icon']} icon={faBars} />}

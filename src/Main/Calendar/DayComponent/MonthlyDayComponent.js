@@ -22,7 +22,7 @@ function DayComponent(props) {
     ${outOfMonth ? classes['out-of-month'] : ''}
     ${optionsCtx.showColors ? classes[stateClass] : ''}`}>
         <p className={classes['date']}>{MONTHS[month]}, {day}</p>
-        <p className={classes['total-done']}>3/5</p>
+        <p className={`${classes['total-done']} ${optionsCtx.showColors?classes['showing-color']:''}`}>3/5</p>
         {/* {habitTitles} */}
     </div>
     )

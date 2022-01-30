@@ -1,8 +1,7 @@
 import classes from './ReminderForm.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { useRef, useState } from 'react/cjs/react.development'
-import { useContext } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { FormContext } from '../../context/habit-form-context'
 
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']

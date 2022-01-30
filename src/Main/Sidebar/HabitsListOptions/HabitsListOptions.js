@@ -1,5 +1,5 @@
 import classes from './HabitsListOptions.module.scss'
-import { useState, useEffect, useContext, Fragment } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { OptionsContext } from '../../side-options-context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

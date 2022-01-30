@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react/cjs/react.development'
+import { useContext } from 'react'
 import { OptionsContext } from '../../side-options-context'
 import WeeklyDayComponent from '../DayComponent/WeeklyDayComponent'
 import classes from './WeeklyCalendar.module.scss'

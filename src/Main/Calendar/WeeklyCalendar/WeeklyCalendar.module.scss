@@ -2,13 +2,22 @@
     width: 100%;
     min-height: 100%;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(80px, 1fr));
     grid-template-rows: 25px auto;
     gap: 7px;
     user-select: none;
     @media screen and(max-width:'768px') {
         gap: 0;
-        grid-template-columns: repeat(7, 14.28%);
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            background: rgba(128, 128, 128, 0.564);
+            height: 7px;
+            border-radius: 7px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: rgb(1, 182, 182);
+            border-radius: 7px;
+        }
     }
     .day-title{
         text-align: center;

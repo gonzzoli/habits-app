@@ -1,10 +1,9 @@
 import classes from './CalendarOptions.module.scss'
-import { useEffect, useState, Fragment, useContext } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { MONTHS, OptionsContext } from '../../side-options-context'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { createPortal } from 'react-dom'
 import OptionsModal from '../OptionsModal/OptionsModal'
 
 const SOME_YEARS = [2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010]

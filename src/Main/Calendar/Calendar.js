@@ -1,4 +1,4 @@
-import { useContext } from 'react/cjs/react.development'
+import { useContext } from 'react'
 import { OptionsContext } from '../side-options-context'
 import classes from  './Calendar.module.scss'
 import MonthlyCalendar from './MonthlyCalendar/MonthlyCalendar'

@@ -1,6 +1,6 @@
 nav {
     width: 100vw;
-    height: 8vh;
+    height: 10vh;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -8,25 +8,29 @@ nav {
     align-items: center;
     user-select: none;
     .logo-container {
-        p{
-            font-size: 1.6rem;
-            cursor: pointer;
-            transition: .2s ease;
-            span {
-                font-weight: 700;
-                color: #C3E789;
-                transition: .2s ease;
-            }
-        }
-        &:hover {
+        a {
+            color: white;
+            text-decoration: none;
             p{
-                color: #C3E789;
+                font-size: 1.6rem;
+                cursor: pointer;
+                transition: .2s ease;
                 span {
-                    color:white;
+                    font-weight: 700;
+                    color: #C3E789;
+                    transition: .2s ease;
+                }
+            }
+            &:hover {
+                p{
+                    color: #C3E789;
+                    span {
+                        color:white;
+                    }
                 }
             }
         }
-       
+        
     }
     .links-container {
         .links-list {
@@ -80,7 +84,7 @@ nav {
             }
             .links-container {
                 height: 100vh;
-                width: 50vw;
+                width: 60vw;
                 background: #464D7C;
                 position: absolute;
                 top: 0;
@@ -90,7 +94,7 @@ nav {
                 flex-direction: column;
                 @keyframes appear-from-side {
                     0%{
-                        right: -500px;
+                        right: -60vw;
                     }
                     100% {
                         right: 0;
@@ -103,7 +107,7 @@ nav {
                             right: 0;
                         }
                         99%{
-                            right: -500px;
+                            right: -60vw;
                         }
                         100%{
                             display: none;

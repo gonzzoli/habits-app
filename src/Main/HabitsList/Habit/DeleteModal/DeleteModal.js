@@ -1,6 +1,6 @@
 import classes from './DeleteModal.module.scss'
 import { createPortal } from 'react-dom'
-import { useRef, useState } from 'react/cjs/react.development'
+import { useRef, useState } from 'react'
 
 function DeleteModal(props) {
     const blurRef = useRef()

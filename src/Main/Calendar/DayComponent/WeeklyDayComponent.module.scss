@@ -80,8 +80,13 @@
         border-bottom: 2px dashed rgba(0, 128, 128, .7);
         }
     }
-    .total-completed {
+    .total-done {
         z-index: 1;
-        color: white;
+        color: rgba(255, 255, 0, 0.8);
+        transition: .15s ease;
+        &.showing-color {
+            color: black;
+            font-weight: 700;
+        }
     }
 }
